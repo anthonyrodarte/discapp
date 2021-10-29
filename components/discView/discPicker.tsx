@@ -1,11 +1,12 @@
 import React from "react";
 import { Picker } from "@react-native-picker/picker";
 
-export default function DiscPicker() {
+export default function DiscPicker({ plastics }) {
   return (
     <Picker>
-      <Picker.Item label="Champion" value="champion" />
-      <Picker.Item label="Star" value="star" />
+      {plastics.map((plastic, idx) => (
+        <Picker.Item label={plastic} value={plastic} key={idx} />
+      ))}
     </Picker>
   );
 }
