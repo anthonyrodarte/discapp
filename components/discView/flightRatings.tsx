@@ -1,21 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-export default function FlightRatings() {
+export default function FlightRatings({ flightRatings }) {
   return (
     <View style={styles.flightNums}>
-      <View style={styles.flightNumsText}>
-        <Text>9</Text>
-      </View>
-      <View style={styles.flightNumsText}>
-        <Text>9</Text>
-      </View>
-      <View style={styles.flightNumsText}>
-        <Text>9</Text>
-      </View>
-      <View style={styles.flightNumsText}>
-        <Text>9</Text>
-      </View>
+      {flightRatings.map((rating, idx) => (
+        <View style={styles.flightNumsText} key={idx}>
+          <Text>{rating}</Text>
+        </View>
+      ))}
     </View>
   );
 }

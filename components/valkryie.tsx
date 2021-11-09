@@ -2,7 +2,7 @@ export const Valkryie: {
   brand: string;
   name: string;
   description: string;
-  ratings: number[];
+  flightRatings: number[];
   plastics: string[];
   tags: {}[];
 } = {
@@ -10,7 +10,7 @@ export const Valkryie: {
   name: "Valkyrie",
   description:
     "The Valkyrie is a turnover distance driver with great glide. A great choice for tailwind or downhill drives.",
-  ratings: [9, 4, -2, 2],
+  flightRatings: [9, 4, -2, 2],
   plastics: ["champion", "star", "dx"],
   tags: [{ Grippy: 10 }, { Understable: 5 }, { Sidearm: 2 }],
 };

@@ -1,4 +1,3 @@
-import { formRow } from "@aws-amplify/ui";
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 
@@ -6,7 +5,6 @@ import FlightRatings from "./discView/flightRatings";
 import Tags from "./discView/tags";
 import DiscPicker from "./discView/discPicker";
 import { Valkryie } from "./valkryie";
-import { BackgroundImage } from "react-native-elements/dist/config";
 
 export default function App() {
   const [discLoaded, updateDiscLoaded] = useState(false);
@@ -14,7 +12,7 @@ export default function App() {
     brand: "" as string,
     name: "" as string,
     description: "" as string,
-    ratings: [] as number[],
+    flightRatings: [] as number[],
     plastics: [] as string[],
     tags: [] as {}[],
   });
@@ -33,6 +31,14 @@ export default function App() {
       const { description } = currentDisc;
 
       return <Text style={styles.description}>{description}</Text>;
+    }
+  };
+
+  const renderFlightRatings = () => {
+    if (discLoaded) {
+      const { flightRatings } = currentDisc;
+
+      return <FlightRatings flightRatings={flightRatings} />;
     }
   };
 
@@ -55,7 +61,7 @@ export default function App() {
       <Image source={require("../assets/disc.jpg")} style={styles.image} />
       {renderDiscName()}
       {renderDiscDescription()}
-      <FlightRatings />
+      {renderFlightRatings()}
       <View style={styles.pickerRow}>
         {renderPlasticPicker()}
         <Text>Stars</Text>
