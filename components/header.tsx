@@ -1,16 +1,10 @@
-// import React from "react";
-// import { Header } from "react-native-elements";
+import React from "react";
+import { StyleSheet, Button, View, Image } from "react-native";
 
-// export default function AppHeader() {
-//   return (
-//     // <Header
-//     //   leftComponent={{
-//     //     icon: "menu",
-//     //     color: "#fff",
-//     //     iconStyle: { color: "#fff" },
-//     //   }}
-//     //   centerComponent={{ text: "MY TITLE", style: { color: "#fff" } }}
-//     //   rightComponent={{ icon: "home", color: "#fff" }}
-//     // />
-//   );
-// }
+export default function Header({ navigation }) {
+  return (
+    <View>
+      <Button title="Home" onPress={() => navigation.navigate("Home", {})} />
+    </View>
+  );
+}

@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Button } from "react-native";
 
 import FlightRatings from "./discView/flightRatings";
 import Tags from "./discView/tags";
-import DiscPicker from "./discView/discPicker";
 import { Valkryie } from "./valkryie";
 
-export default function App() {
+export default function Disc({ navigation }) {
   const [discLoaded, updateDiscLoaded] = useState(false);
   const [currentDisc, udpateCurrentDisc] = useState({
     brand: "" as string,
     name: "" as string,
     description: "" as string,
     flightRatings: [] as number[],
-    plastics: [] as string[],
     tags: [] as {}[],
   });
 
@@ -42,14 +40,6 @@ export default function App() {
     }
   };
 
-  const renderPlasticPicker = () => {
-    if (discLoaded) {
-      const { plastics } = currentDisc;
-
-      return <DiscPicker plastics={plastics} />;
-    }
-  };
-
   useEffect(() => {
     udpateCurrentDisc(Valkryie);
 
@@ -58,14 +48,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Button title="Home" onPress={() => navigation.navigate("Home", {})} />
       <Image source={require("../assets/disc.jpg")} style={styles.image} />
       {renderDiscName()}
       {renderDiscDescription()}
       {renderFlightRatings()}
-      <View style={styles.pickerRow}>
-        {renderPlasticPicker()}
-        <Text>Stars</Text>
-      </View>
+      <Text>Stars</Text>
       <Tags />
     </View>
   );

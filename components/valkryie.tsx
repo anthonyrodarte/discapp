@@ -3,7 +3,7 @@ export const Valkryie: {
   name: string;
   description: string;
   flightRatings: number[];
-  plastics: string[];
+  // plastics: string[];
   tags: {}[];
 } = {
   brand: "Innova",
@@ -11,6 +11,6 @@ export const Valkryie: {
   description:
     "The Valkyrie is a turnover distance driver with great glide. A great choice for tailwind or downhill drives.",
   flightRatings: [9, 4, -2, 2],
-  plastics: ["champion", "star", "dx"],
+  // plastics: ["champion", "star", "dx"],
   tags: [{ Grippy: 10 }, { Understable: 5 }, { Sidearm: 2 }],
 };
